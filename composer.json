@@ -1,0 +1,32 @@
+{
+    "name": "nyssa/oss-td3",
+    "description": "This is a library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nyssa\\OssTd3\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hassina",
+            "email": "hassinaayachi@hotmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.6",
+        "symfony/var-dumper": "^6.0"
+    },
+    "require": {
+        "symfony/http-client": "^6.0",
+        "php": ">=8.0",
+        "symfony/dom-crawler": "^6.0",
+        "symfony/css-selector": "^6.0"
+    },
+    "scripts": {
+        "phpstan": "@php vendor/bin/phpstan analyse src --level=max",
+        "test": "@php vendor/bin/phpunit tests"
+    }
+}
