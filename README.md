@@ -19,3 +19,6 @@ php vendor/bin/phpunit tests
 ### Get all mangas
 Gets the title of every manga.
 
+### Get all mangas with prices
+Gets the title of every manga and its price.
+
