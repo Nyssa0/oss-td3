@@ -1,6 +1,6 @@
 {
     "name": "nyssa/oss-td3",
-    "description": "This is a library",
+    "description": "This is a library that helps you get your favorite mangas !",
     "type": "library",
     "license": "MIT",
     "autoload": {
