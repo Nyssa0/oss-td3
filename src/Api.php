@@ -25,6 +25,7 @@ class Api {
     }
 
     /**
+     * Gets the title of all the mangas
      * @return string[]
      */
     public function getAllMangas(): array
@@ -42,6 +43,30 @@ class Api {
         }
 
         return $allMangas;
+    }
+
+    /**
+     * Returns the list of mangas with their prices
+     * @return array<int, array<string, string>>|null
+     */
+    public function getAllMangasWithPrices(): ?array
+    {
+        $html = $this->httpRequest();
+
+        $crawler = new Crawler($html);
+
+        $allProducts = [];
+         $crawler->filter('.product')->each(function (Crawler $node) use (&$allProducts): void {
+            $title = $node->filter('h2>a')->text();
+            $price = $node->filter('p')->text();
+            $allProducts[] = [
+                'title' => $title,
+                'price' => $price
+            ];
+        });
+
+        return $allProducts;
+
     }
 
 }

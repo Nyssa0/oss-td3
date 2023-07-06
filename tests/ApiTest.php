@@ -7,7 +7,28 @@ class ApiTest extends TestCase {
 
     public function testGetProductName() {
         $api = new Api();
-        $this->assertIsArray($api->getAllMangas());
-        $this->assertNotEmpty($api->getAllMangas());
+        $result = $api->getAllMangas();
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
+
+        foreach ($result as $item) {
+            $this->assertIsString($item);
+        }
+    }
+
+    public function testGetAllMangasWithPrices() {
+        $api = new Api();
+
+        $result = $api->getAllMangasWithPrices();
+        $this->assertIsArray($result);
+        $this->assertNotEmpty($result);
+
+        foreach ($result as $item) {
+            $this->assertIsArray($item);
+            $this->assertArrayHasKey('title', $item);
+            $this->assertArrayHasKey('price', $item);
+            $this->assertIsString($item['title']);
+            $this->assertIsString($item['price']);
+        }
     }
 }
